@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9DF26B36-F23E-4FA7-AA40-B665612E6DA7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>screenGIFfier</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9326FB21-3939-4DF2-B035-23EF5284296B</key>
+		<string>https://github.com/MP0w/screenGIFfier.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>screenGIFfier.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9326FB21-3939-4DF2-B035-23EF5284296B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/MP0w/screenGIFfier.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9326FB21-3939-4DF2-B035-23EF5284296B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9326FB21-3939-4DF2-B035-23EF5284296B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>screenGIFfier</string>
+		</dict>
+	</array>
+</dict>
+</plist>
