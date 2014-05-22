@@ -15,6 +15,7 @@
 #include <signal.h>
 
 static bool keepRunning = true;
+static CGFloat scaleFactor=.25;
 
 void intHandler() {
     keepRunning = false;
@@ -28,8 +29,9 @@ void intHandler() {
 @end
 
 void exportAnimatedGifFromImages(NSArray *images);
+id resizedImage(NSImage* image);
 
-int main(int argc, const char * argv[])
+int main(int argc, char * const argv[])
 {
     
     @autoreleasepool {
@@ -80,10 +82,15 @@ void exportAnimatedGifFromImages(NSArray *images)
                                                               forKey:(NSString *)kCGImagePropertyGIFDictionary];
     
     for (NSImage *image in images) {
-        CGImageSourceRef source;
-        source = CGImageSourceCreateWithData((CFDataRef)[image TIFFRepresentation], NULL);
+        
+        image=(NSImage *)resizedImage(image);
+        
+        CGImageSourceRef source = CGImageSourceCreateWithData((CFDataRef)[image TIFFRepresentation], NULL);
         CGImageRef maskRef =  CGImageSourceCreateImageAtIndex(source, 0, NULL);
         CGImageDestinationAddImage(destination, maskRef, (CFDictionaryRef)frameProperties);
+        
+        CFRelease(source);
+        CFRelease(maskRef);
     }
     
     
@@ -93,6 +100,27 @@ void exportAnimatedGifFromImages(NSArray *images)
     NSLog(@"Animated GIF file created at %@", path);
 }
 
+id resizedImage(NSImage* image)
+{
+    NSImage *sourceImage = image;
+    
+    CGSize scaledSize=CGSizeMake(image.size.width*scaleFactor, image.size.height*scaleFactor);
+
+    NSRect targetFrame = NSMakeRect(0, 0, scaledSize.width, scaledSize.height);
+    NSImage* targetImage = nil;
+    NSImageRep *sourceImageRep =
+    [sourceImage bestRepresentationForRect:targetFrame
+                                   context:nil
+                                     hints:nil];
+    
+    targetImage = [[NSImage alloc] initWithSize:scaledSize];
+    
+    [targetImage lockFocus];
+    [sourceImageRep drawInRect: targetFrame];
+    [targetImage unlockFocus];
+    
+    return targetImage;
+}
 
 @implementation MPListener
 
