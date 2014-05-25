@@ -22,7 +22,7 @@ void intHandler() {
 }
 
 
-#define TIME_TO_WAIT 0.1
+#define TIME_TO_WAIT 0.05
 
 @interface MPListener : NSObject<MobileDeviceAccessListener>
 
